@@ -27,6 +27,7 @@ jobs:
           cp -r ../../public/.git .
           git add -A
           git commit -m "update submodule-test"
+          git log
       - name: Push subdir files
         uses: ad-m/github-push-action@master
         with:
