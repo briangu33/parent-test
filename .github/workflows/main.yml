@@ -9,6 +9,16 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Commit subdir files
+        run: |
+          git config --global user.email "briangu33@gmail.com"
+          git config --global user.name "Brian Gu"
+          cd submodule-test
+          git init
+          git remote add git@github.com:briangu33/submodule-test.git
+          git add -A
+          git commit -m "first commit"
+          git push
       - name: Hello world action step
         uses: ./.github/actions/copy-os-repo # Uses an action in the root directory
         id: hello
