@@ -13,8 +13,8 @@ jobs:
           persist-credentials: false
       - name: Commit subdir files
         run: |
-          git config --global user.email "briangu33@gmail.com"
-          git config --global user.name "Brian Gu"
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           echo $(ls)
           cd submodule-test
           git init
