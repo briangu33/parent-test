@@ -22,8 +22,8 @@ jobs:
           echo $(ls main)
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          cd main/parent-test/submodule-test
-          cp -r ../../../public/submodule-test/.git .
+          cd main/submodule-test
+          cp -r ../public/.git .
           git add -A
           git commit -m "update submodule-test"
       - name: Push subdir files
