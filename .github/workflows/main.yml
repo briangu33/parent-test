@@ -11,24 +11,26 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+          path: main
+      - name: Checkout public repo
+        uses: actions/checkout@v2
+        with:
+          repository: briangu33/submodule-test
+          path: public
       - name: Commit subdir files
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          echo $(ls)
-          cd submodule-test
-          git init
-          git remote add origin git@github.com:briangu33/submodule-test.git
+          cd main/parent-test/submodule-test
+          cp -r ../../../public/submodule-test/.git .
           git add -A
-          git commit -m "first commit"
-          cd ../
+          git commit -m "update submodule-test"
       - name: Push subdir files
         uses: ad-m/github-push-action@master
         with:
           directory: submodule-test
           repository: briangu33/submodule-test
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+          github_token: ${{ secrets.SM_TEST_TOKEN }}
       - name: Hello world action step
         uses: ./.github/actions/copy-os-repo # Uses an action in the root directory
         id: hello
