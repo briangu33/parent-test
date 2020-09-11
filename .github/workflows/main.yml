@@ -13,7 +13,8 @@ jobs:
         run: |
           git config --global user.email "briangu33@gmail.com"
           git config --global user.name "Brian Gu"
-          cd submodule-test
+          echo $(ls)
+          cd ${HOME}/parent-test/submodule-test
           git init
           git remote add git@github.com:briangu33/submodule-test.git
           git add -A
