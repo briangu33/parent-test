@@ -19,7 +19,13 @@ jobs:
           git remote add origin git@github.com:briangu33/submodule-test.git
           git add -A
           git commit -m "first commit"
-          git push --set-upstream origin master
+          cd ../
+      - name: Push subdir files
+        uses: ad-m/github-push-action@master
+        with:
+          directory: submodule-test
+          repository: briangu33/submodule-test
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Hello world action step
         uses: ./.github/actions/copy-os-repo # Uses an action in the root directory
         id: hello
