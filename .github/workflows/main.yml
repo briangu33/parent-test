@@ -16,7 +16,7 @@ jobs:
           echo $(ls)
           cd submodule-test
           git init
-          git remote add git@github.com:briangu33/submodule-test.git
+          git remote add -m git@github.com:briangu33/submodule-test.git
           git add -A
           git commit -m "first commit"
           git push
